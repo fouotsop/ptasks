@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ptasks/home/home.dart';
 import 'package:ptasks_repository/ptasks_repository.dart';
 
 class Ptasks extends StatelessWidget {
@@ -13,12 +14,8 @@ class Ptasks extends StatelessWidget {
       create: (context) => _userService,
       child: Provider(
         create: (context) => _taskService,
-        child: MaterialApp(
-          home: Scaffold(
-            appBar: AppBar(title: const Text('Ptasks')),
-            body: const Center(child: Text('Welcome to Ptasks!')),
-          ),
-        ),
+        dispose: (context, taskService) => taskService.close(),
+        child: MaterialApp(home: Home()),
       ),
     );
   }
