@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart' show Provider;
-import 'package:ptasks_repository/ptasks_repository.dart' show TaskService;
 
 import '../task/pages/list_tasks.dart';
 
@@ -16,11 +14,7 @@ class Home extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => TaskPage(
-                  taskService: Provider.of<TaskService>(context, listen: false),
-                ),
-              ),
+              MaterialPageRoute(builder: (context) => TaskPage()),
             );
           },
           child: Text("Go to task"),
